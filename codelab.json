@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-08-17T00:06:01-04:00",
+  "id": "flutter-codelab-cr1-1",
+  "duration": 12,
+  "title": "Flutter Codelab / Coding Roulette #1 - Creating The Splash Page - Building Layouts in Flutter (Workshop)",
+  "authors": "Roman Jaquez",
+  "summary": "Flutter Codelab / Coding Roulette #1",
+  "source": "flutter-codelab-cr1-1.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "flutter"
+  ],
+  "tags": [
+    "flutter"
+  ],
+  "feedback": "https://romanjustcodes.web.app",
+  "url": "flutter-codelab-cr1-1"
+}

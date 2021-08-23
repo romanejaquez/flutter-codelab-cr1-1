@@ -1,0 +1,278 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Flutter Codelab / Coding Roulette #1 - Creating The Splash Page - Building Layouts in Flutter (Workshop)</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="flutter-codelab-cr1-1"
+                  title="Flutter Codelab / Coding Roulette #1 - Creating The Splash Page - Building Layouts in Flutter (Workshop)"
+                  environment="web"
+                  feedback-link="https://romanjustcodes.web.app">
+    
+      <google-codelab-step label="Overview" duration="0">
+        <h2 is-upgraded>What You&#39;ll Build in this Workshop:</h2>
+<ul>
+<li>A simple 3-page Flutter Application / Paradise (Splash Page, Landing Page, List Page)</li>
+<li>Create Flutter User interfaces with ease</li>
+<li>Common Flutter Layout strategies using just core widgets</li>
+<li>Creating custom Flutter widgets and achieve widget composition</li>
+<li>Creating Dart models to mock up app data</li>
+<li>Import network images</li>
+<li>Using Material Icon fonts</li>
+</ul>
+<p class="image-container"><img alt="Full Application" src="img/e5ae2e94976f0d21.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Pre-requisites" duration="0">
+        <ul>
+<li>A computer with a browser</li>
+<li>An internet connection</li>
+</ul>
+<aside class="special"><p>We&#39;ll be using <a href="https://dartpad.dev/" target="_blank">DartPad</a>, a web-based, open-source tool that offers an online playground for learning Dart and Flutter. For more info, visit <a href="https://dart.dev/tools/dartpad" target="_blank">this link</a>.</p>
+</aside>
+<p>For the <strong>Coding Roulette Session</strong>:</p>
+<ul>
+<li>We&#39;ll be using <a href="https://code.visualstudio.com/learn/collaboration/live-share" target="_blank"><strong>LiveShare</strong></a>, a web-based VS Code plugin for real-time collaborative development.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Launching DartPad" duration="1">
+        <p><a href="https://dartpad.dev/" target="_blank">DartPad</a> will be our Flutter development editor, so let&#39;s set it up for that.</p>
+<p>First, go to a browser and launch <a href="https://dartpad.dev/" target="_blank">dartpad.dev</a>. Your browser should look as follows:</p>
+<p class="image-container"><img alt="DartPad on the Web" src="img/864504f137532d7c.png"></p>
+<h2 is-upgraded>Setting up DartPad for Flutter Development</h2>
+<p>By default, DartPad is set up for Dart development. For Flutter development, do the following steps:</p>
+<ul>
+<li>From the top menu, select <strong>New Pad</strong>.</li>
+</ul>
+<p class="image-container"><img alt="Select New Pad" src="img/1f549a3175199a60.png"></p>
+<ul>
+<li>If prompted to discard changes of the current pad, click <strong>OK</strong>.</li>
+</ul>
+<p class="image-container"><img alt="Create New Pad" src="img/e78af321bbfdae09.png"></p>
+<ul>
+<li>From the <strong>New Pad</strong> dialog, select <strong>Flutter</strong>. Click <strong>Create</strong>.</li>
+</ul>
+<p class="image-container"><img alt="Select Flutter" src="img/236c1c1004b65cd2.png"></p>
+<p>You should be all set! Now you&#39;re ready to start coding in Flutter right from your browser. If you hit the <strong>Run</strong> button, you will see the generated output on the right panel.</p>
+<p class="image-container"><img alt="Select Flutter" src="img/2f5f9922e4dd8ade.png"></p>
+<p>Are you ready? Let&#39;s go to the next step!</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Initial Setup" duration="2">
+        <p>For the initial page in this application, we&#39;ll be building the Splash Screen.</p>
+<p>This is what we&#39;ll be accomplishing in this codelab:</p>
+<h2 is-upgraded>Splash Screen and its widget composition</h2>
+<p>The following illustration shows a schematic view of the widget composition we&#39;ll accomplish while building the layout for our splash screen widget:</p>
+<p class="image-container"><img alt="Splash Screen" src="img/cf9e4f88631227b3.png"></p>
+<h2 is-upgraded>Start Coding the App</h2>
+<p>Let&#39;s start coding this application from scratch. Remove all code from the editor and leave just the following code:</p>
+<pre><code language="language-flutter" class="language-flutter">import &#39;package:flutter/material.dart&#39;;
+
+void main() {
+  // TODO: more code here later
+}
+
+</code></pre>
+<p>We are importing the Material Library Flutter package and like every Flutter app, the main entrypoint is the <strong>main</strong> method. Inside this method is where things kick off. We&#39;ll get back to this point in a minute.</p>
+<p>Inside the <strong>main</strong> method, add the following code:</p>
+<pre><code language="language-flutter" class="language-flutter">// add this code inside your void main():
+
+runApp(
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: SplashPage()
+  )
+);
+
+</code></pre>
+<p class="image-container"><img alt="Main Method" src="img/e651526e9fade398.png"></p>
+<aside class="warning"><p>Don&#39;t mind the error you&#39;re seeing on the SplashPage widget since we haven&#39;t created yet. We&#39;ll get to it in a minute.</p>
+</aside>
+<p>The <a href="https://api.flutter.dev/flutter/widgets/runApp.html" target="_blank"><strong>runApp</strong></a> method is part of the Flutter framework and is in charge of mounting the root widget on the widget tree. We create the first widget (MaterialApp) which represents the application&#39;s root widget.</p>
+<p>We disable the debugging sash by setting the <strong>debugShowCheckedModeBanner</strong> to <strong><em>false</em></strong>, and set the <strong>home</strong> property of the MaterialApp widget to be our SplashPage widget, which we&#39;ll create in a moment.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create the SplashPage Widget" duration="3">
+        <p>Let&#39;s create the SplashPage Widget.</p>
+<p>Right under the <strong>main</strong> method, create a <strong><em>StatelessWidget</em></strong> called <strong>SplashPage</strong>. We create it as Stateless since we won&#39;t be maintaing state. More info on StatelessWidgets <a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html" target="_blank">here</a>.</p>
+<p>Since every widget has a <strong>build</strong> method, add one, and return an empty <strong>Stack</strong> widget. We use a Stack mostly to add widgets one on top of each other, in a stack fashion. We&#39;ll be adding the background color container, icon and the linear progress indicator as children of the <strong>Stack</strong> widget, but with different alignments.</p>
+<aside class="special"><p>The <a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/build.html" target="_blank">build</a> method gets executed by Flutter when mounting the widget on the widget tree, which in turn builds its contents; in the case of a <a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html" target="_blank">StatefulWidget</a>, every time its state changes. We&#39;ll be dealing with states later in upcoming labs.</p>
+</aside>
+<p class="image-container"><img alt="Main Method" src="img/e48a95edbe27c773.png"></p>
+<p>Under the <strong>import</strong> statement, right above the <strong>main</strong> method, add the following line:</p>
+<pre><code language="language-flutter" class="language-flutter">const Color mainThemeColor = Color(0xFF272D8D);
+</code></pre>
+<p>We want to use this <strong><em>mainThemeColor</em></strong> property throughout our application and don&#39;t want to repeat ourselves, hence holding on to this value on this global property.</p>
+<p>As the first child of the <strong>Stack</strong> widget, let&#39;s add a <strong>Container</strong> widget, and apply the main theme color as its background color.</p>
+<aside class="special"><p>A <a href="https://api.flutter.dev/flutter/widgets/Container-class.html" target="_blank"><strong>Container</strong></a> widget is one of the most versatile widgets and can be considered one of the core widgets for building layouts, since it combines painting, positioning and sizing capabilities.</p>
+</aside>
+<p class="image-container"><img alt="Stack Widget" src="img/7d0224bfd8e391ec.png"></p>
+<p>Proceed to add more children to the Stack widget - in our case, let&#39;s add an <strong>Icon</strong> widget, with a specific icon (Icons.pool) and aligned at the center of the stack using an <strong>Align</strong> widget with the <strong>Alignment.center</strong> set to it. Add a white color to it and a size of 80px:</p>
+<p class="image-container"><img alt="Align Icon" src="img/216c590ee5640a39.png"></p>
+<p>Add the third child to the Stack widget - the <strong>LinearProgressIndicator</strong> widget. This is a handy widget as it shows a spinning circle that you can use for indicating an ongoing process. Set its <strong><em>valueColor</em></strong> property to <strong>AlwaysStoppedAnimation</strong>(Colors.white) so it shows white, but with a 50% opacity (0.5).</p>
+<p>We want to show it aligned to the bottom of the stack, so wrap it inside another <strong>Align</strong> widget, with an <strong><em>alignment:</em></strong> property set to <strong>Alignment.bottomCenter</strong>. By now, your code should look as follows:</p>
+<p class="image-container"><img alt="Align Circular Progress Indicator" src="img/6639fa8bc3cce256.png"></p>
+<p>If you hit <strong>Run</strong> on DartPad, your app preview should look like this:</p>
+<p class="image-container"><img alt="Splash Page" src="img/1bd1a5fb351a2785.png"></p>
+<p>So far so good! Now I&#39;ll show you how to make a truly functional splash screen in the next step.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Create Dummy Landing Page" duration="3">
+        <p>Now that we have our Splash Page almost ready, let&#39;s create the shell of the page that the Splash Page widget will navigate to after we simulate a short delay (i.e. fetching data from a backend, performing some process prior entering the app, etc.).</p>
+<p>Create another class under the Splash Page widget called <strong>ListPage</strong>. This will represent the list page where we&#39;ll display the app&#39;s content as a list. For now let&#39;s put dummy content just to test the Splash Page. In the next codelab we&#39;ll flesh it out more:</p>
+<p class="image-container"><img alt="ListPage Page" src="img/a0ecc811216e243a.png"></p>
+<aside class="special"><p>This page only shows a Text widget with the content <strong>Hello Paradise!</strong> displayed at the center, thanks to a <a href="https://api.flutter.dev/flutter/widgets/Center-class.html" target="_blank"><strong>Center</strong></a> widget. A <a href="https://api.flutter.dev/flutter/material/Scaffold-class.html" target="_blank"><strong>Scaffold</strong></a> widget is a great starting point for all your page widgets since it implements the basic material design visual layout structure, so I strongly recommend it.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Simulate a delay on the Splash Page widget" duration="3">
+        <p>So what we&#39;ll do now is simulate a delay in the Splash Page, then navigate to our list page. For that we&#39;ll make use of a <strong>Future</strong>, which is an object that represents a delayed computation. More on Futures <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html" target="_blank">here</a>.</p>
+<p>Back in our Splash Page widget, let&#39;s add a Future, and use one of the provided methods called <strong>delayed</strong>. This method takes a duration, and a callback, which gets executed once the duration (or delay) has ellapsed. We&#39;ll set a duration of 2 seconds, and when this time has ellapsed, it will execute our callback, which in turn will perform a Navigation to our list page.</p>
+<p>Add a <strong><em>Future.delayed</em></strong> inside the SplashPage widget&#39;s <strong>build</strong> method, right above the <strong>return</strong> statement, as such:</p>
+<p class="image-container"><img alt="Future" src="img/b5fc653045ee0873.png"></p>
+<p>Let&#39;s dissect this code. <strong>Future.delayed</strong> takes two parameters: a <strong>Duration</strong> object with is <strong>seconds</strong> property set to 2, and a callback. When the 2 seconds have ellapsed, it will call the callback.</p>
+<p>The callback has inside a trigger to perform a navigation. We use <strong>Navigator.of</strong> to push a new route to the global navigation stack, using the <strong>BuildContext </strong><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html" target="_blank">context</a> to retrieve the closest navigator in the hierarchy, in our case, the one available by default from the <strong>MaterialApp</strong>. We use a <a href="https://api.flutter.dev/flutter/material/MaterialPageRoute-class.html" target="_blank"><strong>MaterialPageRoute</strong></a> to wrap the widget we want to navigate to, in our case the <strong>ListPage</strong> widget created earlier.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Run the Application" duration="0">
+        <p>Now, let&#39;s take our current implementation for a spin with what we have so far.</p>
+<p>In DartPad, click <strong>Run</strong>. After a 2 seconds delay, you should see the <strong>SplashSpage</strong> widget slide out of view and sliding in comes the <strong>ListPage</strong> widget, which will be our landing page for now.</p>
+<p class="image-container"><img alt="Run the App" src="img/503575fb16c6e7f.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Wrap-up" duration="0">
+        <p>Congrats in making it this far! In this codelab, we accomplished the following:</p>
+<ul>
+<li>Performed the initial setup of our DartPad environment</li>
+<li>Created our initial boilerplate startup code</li>
+<li>Created a SplashScreen widget with core widgets</li>
+<li>Created a dummy landing page (ListPage) for the SplashPage widget to navigate to</li>
+<li>Introduced Futures to add a small delay before proceeding further</li>
+<li>Tapped into the navigation capabilities of Flutter</li>
+</ul>
+<p>In the next codelab, we&#39;ll flesh out the <strong>ListPage</strong> widget and learn more about creating custom widgets. See you there!</p>
+<h3 is-upgraded>Please don&#39;t forget to follow me on social media:</h3>
+<ul>
+<li>On Twitter (<a href="https://www.twitter.com/drcoderz" target="_blank">@drcoderz</a>)</li>
+<li>On YouTube (<a href="https://www.youtube.com/channel/UCKsp3r1ERjCpKJtD2n5WtPg" target="_blank">Roman Just Codes</a>)</li>
+<li>On My <a href="https://romanjustcodes.web.app/#/home" target="_blank">Personal Portfolio</a></li>
+<li>On <a href="https://medium.com/@romanejaquez" target="_blank">Medium</a></li>
+<li>On <a href="https://www.linkedin.com/in/roman-jaquez-8941a424/" target="_blank">LinkedIn</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Complete Code" duration="0">
+        <p>In case you fell behind on this codelab, below is the whole code for this codelab in a way you can copy / paste directly into DartPad:</p>
+<pre><code language="language-flutter" class="language-flutter">import &#39;package:flutter/material.dart&#39;;
+
+const Color mainThemeColor = Color(0xFF272D8D);
+
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false, 
+      home: SplashPage()
+    )
+  );
+}
+
+class SplashPage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) =&gt; ListPage())
+      );
+    });
+
+    return Stack(
+      children: [
+        Container(
+          color: mainThemeColor
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: Icon(
+            Icons.pool, 
+            color: Colors.white, 
+            size: 80
+          )
+        ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: LinearProgressIndicator(
+            valueColor: AlwaysStoppedAnimation&lt;Color&gt;(
+              Colors.white.withOpacity(0.4)
+            )
+          )
+        )
+      ],
+    );
+  }
+}
+
+class ListPage extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(&#39;Hello Paradise!&#39;),
+      )
+    );
+  }
+}
+</code></pre>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
